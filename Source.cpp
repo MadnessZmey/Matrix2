@@ -6,6 +6,7 @@ class Matrix
 {
 private:
 	double array[3][3];
+	
 
 public:
 
@@ -71,6 +72,36 @@ public:
 		return *this;
 		cout << "Вызов Оператор копирования Matrix" << endl;
 	}
+
+
+	friend std::ostream& operator<< (std::ostream& out, const Matrix& CopyMatrix)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				out << CopyMatrix.array[i][j];
+				out << "\t";
+			}
+			out << endl;
+		}
+
+		return out;
+	}
+
+
+	Matrix operator+(const Matrix& B)
+	{	
+
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++)
+				array[i][j] = array[i][j] + B.array[i][j];
+		cout << "результат сложения матриц" << endl;
+		return *this;
+
+	}
+
+
 };
 
 
@@ -106,6 +137,24 @@ void main()
 	Copy.Print();
 	cout << endl;
 
+
+	Proba.SetRandom();
+	//Proba.Print();
+	Copy.SetRandom();
+	//Copy.Print();
+
+	Matrix Slozh;
+	Slozh=Proba + Copy;
+	//Slozh.Print();
+
+	cout << Proba<<"+" << endl <<Copy<<"=" << endl <<Slozh<<endl;
+
+
+
+
+	cout << endl; 
+
+	//111111
 
 	system("pause");
 }
