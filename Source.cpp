@@ -156,7 +156,7 @@ void main()
 
 	//111111
 	//11111
-	//012hjbhjbhjb
+	//012345
 
 	system("pause");
 }
