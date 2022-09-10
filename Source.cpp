@@ -29,7 +29,7 @@ public:
 	}*/
 
 
-	void Print()
+	void Print()		//Функция вывода
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -74,7 +74,7 @@ public:
 	}
 
 
-	friend std::ostream& operator<< (std::ostream& out, const Matrix& CopyMatrix)
+	friend std::ostream& operator<< (std::ostream& out, const Matrix& CopyMatrix)		//Вывод (дружественная функция)
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -90,7 +90,7 @@ public:
 	}
 
 
-	Matrix operator+(Matrix B)
+	Matrix operator+(Matrix B)			//Оператор сложения
 	{	
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++)
@@ -98,6 +98,18 @@ public:
 		cout << "результат сложения матриц" << endl;
 		return B;
 	}
+
+
+	Matrix operator*(Matrix B)			//Оператор умножения
+	{
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++)
+				B.array[i][j] *= array[i][j];
+		cout << "результат умноженмия матриц" << endl;
+		return B;
+	}
+
+
 };
 
 
@@ -145,7 +157,10 @@ void main()
 
 	cout << Proba<<"+" << endl <<Copy<<"=" << endl <<Slozh<<endl;
 
+	Matrix Umnozh;
+	Umnozh = Proba * Copy;
 
+	cout << Proba << "*" << endl << Copy << "=" << endl << Umnozh << endl;
 
 
 	cout << endl; 
