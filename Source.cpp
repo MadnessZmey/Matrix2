@@ -100,23 +100,58 @@ public:
 	}
 
 
-	Matrix operator* (Matrix B)			//Оператор умножения
+	Matrix operator*(Matrix B)			//Оператор умножения матрицы на матрицу
 	{
 
 		Matrix Umno;
 
 
-		for (int z = 0; z < 3; z++)
-			for (int x = 0; x < 3; x++)
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++)
 
-				for (int j = 0; j < 3; j++)
+				for (int z = 0; z < 3; z++)
 					
-						Umno.array[z][x] += B.array[j][x] * array[z][j];
+						Umno.array[i][j] += B.array[z][j] * array[i][z];
 
-		cout << "результат умноженмия матриц" << endl;
+		cout << "результат умножения матрицы на матрицу" << endl;
 		return Umno;
 	}
 
+
+
+	Matrix operator*(double C)			//Оператор умножения матрица на число (число с права)
+	{
+		Matrix UmnoC;
+
+		/*for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++)
+
+				UmnoC.array[i][j] *= C;*/
+
+
+		for (int i = 0; i < 3; i++)
+			for (int j = 0; j < 3; j++)
+				UmnoC.array[i][j] = array[i][j] * C;
+
+
+		cout << "результат умножения матрицы на матрицу" << endl;
+		return UmnoC;
+	}
+
+
+
+	//friend double operator*(double A, Matrix B)		//Оператор умножения матрица на число
+	//{
+	//	Matrix UmnoCN;
+
+	//	for (int i = 0; i < 3; i++)
+	//		for (int j = 0; j < 3; j++)
+	//			UmnoCN.array[i][j] *= A;
+
+
+	//	cout << "результат умножения матрицы на матрицу" << endl;
+	//	return UmnoCN;
+	//}
 
 };
 
@@ -165,10 +200,15 @@ void main()
 
 	cout << Proba<<"+" << endl <<Copy<<"=" << endl <<Slozh<<endl;
 
-	Matrix Umnozh;
-	Umnozh = Proba * Copy;
+	Matrix UmnozhM;
+	UmnozhM = Proba * Copy;
 
-	cout << Proba << "*" << endl << Copy << "=" << endl << Umnozh << endl;
+	cout << Proba << "*" << endl << Copy << "=" << endl << UmnozhM << endl;
+
+	Matrix UmnozhCh;
+	UmnozhCh = Proba * 8;
+
+	cout << Proba << "*" << endl << "8" << endl << "=" << endl << UmnozhCh << endl;
 
 
 	cout << endl; 
