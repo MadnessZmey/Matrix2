@@ -100,13 +100,21 @@ public:
 	}
 
 
-	Matrix operator*(Matrix B)			//Оператор умножения
+	Matrix operator* (Matrix B)			//Оператор умножения
 	{
-		for (int i = 0; i < 3; i++)
-			for (int j = 0; j < 3; j++)
-				B.array[i][j] *= array[i][j];
+
+		Matrix Umno;
+
+
+		for (int z = 0; z < 3; z++)
+			for (int x = 0; x < 3; x++)
+
+				for (int j = 0; j < 3; j++)
+					
+						Umno.array[z][x] += B.array[j][x] * array[z][j];
+
 		cout << "результат умноженмия матриц" << endl;
-		return B;
+		return Umno;
 	}
 
 
