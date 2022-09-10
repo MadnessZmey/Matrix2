@@ -90,18 +90,14 @@ public:
 	}
 
 
-	Matrix operator+(const Matrix& B)
+	Matrix operator+(Matrix B)
 	{	
-
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++)
-				array[i][j] = array[i][j] + B.array[i][j];
+				B.array[i][j] += array[i][j];
 		cout << "результат сложения матриц" << endl;
-		return *this;
-
+		return B;
 	}
-
-
 };
 
 
@@ -144,7 +140,7 @@ void main()
 	//Copy.Print();
 
 	Matrix Slozh;
-	Slozh=Proba + Copy;
+	Slozh = Proba + Copy;
 	//Slozh.Print();
 
 	cout << Proba<<"+" << endl <<Copy<<"=" << endl <<Slozh<<endl;
