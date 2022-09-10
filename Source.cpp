@@ -159,6 +159,7 @@ void main()
 	//Zhenya
 
 	system("pause");
+	//шл€па
 }
 
 
