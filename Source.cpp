@@ -54,6 +54,7 @@ public:
 
 	Matrix SetRandom()
 	{
+		//srand(time(0));						//генерация случайного значения для rand, закоментировать при отладке
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++)
 				this->array[i][j] = rand() % 10;
